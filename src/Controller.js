@@ -10,7 +10,6 @@ class Controller {
     this.height = this.view.canvas.height;
 
     this.game.markBoundaries(this.width, this.height);
-
     this.init();
   }
 
