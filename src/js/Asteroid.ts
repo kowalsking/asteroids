@@ -1,9 +1,21 @@
+type ConfigType = any
+type AnsteroidType = {
+  x: number,
+  y: number,
+  radius: number,
+  xv: number,
+  yv: number
+}
+
 class Asteroid {
-  constructor(config) {
-    this.config = config;
+  private config: ConfigType
+  private asteroid: AnsteroidType
+
+  constructor (config) {
+    this.config = config
   }
 
-  create(x, y, r = this.config.astrSize / 2) {
+  create (x, y, r = this.config.astrSize / 2) {
     const velocity = (Math.random() * this.config.astrSpd) / this.config.fps;
     return (this.asteroid = {
       x: x,
@@ -14,7 +26,7 @@ class Asteroid {
     });
   }
 
-  move() {
+  move () {
     this.asteroid.x += this.asteroid.xv;
     this.asteroid.y += this.asteroid.yv;
   }

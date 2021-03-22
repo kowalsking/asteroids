@@ -2,15 +2,20 @@ import Ship from "./Ship";
 import Asteroid from "./Asteroid";
 
 class Game {
-  constructor() {}
+  private width: number
+  private height: number
+  private prevUpdateTime: number = 0
+  private config: any
+  private ship: Ship
+  private allAsteroids: any
+  private state: any
 
-  markBoundaries(w, h) {
+  markBoundaries(w: number, h: number) {
     this.width = w;
     this.height = h;
   }
 
   setup() {
-    this.prevUpdateTime = 0;
     this.setupConfig();
     this.setupShip();
     this.setupAsteroids();

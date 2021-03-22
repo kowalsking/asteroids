@@ -1,6 +1,10 @@
 class Ship {
+  public body: any
+  private config: any
+  private ship: any
+  
   constructor(config) {
-    this.config = config;
+    this.config = config
   }
 
   create(w, h, s) {
