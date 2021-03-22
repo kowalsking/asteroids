@@ -22,5 +22,7 @@
     "vinyl-source-stream": "^1.1.0",
     "yargs": "^4.6.0"
   },
-  "dependencies": {}
+  "dependencies": {
+    "pixi.js": "^6.0.0"
+  }
 }
