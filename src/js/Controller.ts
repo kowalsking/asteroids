@@ -24,14 +24,14 @@ class Controller {
 
   eventsHandlers () {
     document.addEventListener("keydown", (e) => {
-      this.game.keyDown(e);
-    });
+      this.game.keyDown(e)
+    })
     document.addEventListener("keyup", (e) => {
-      this.game.keyUp(e);
-    });
+      this.game.keyUp(e)
+    })
     window.addEventListener("resize", () => {
-      this.onResize();
-    });
+      this.onResize()
+    })
   }
 
   update (time) {
