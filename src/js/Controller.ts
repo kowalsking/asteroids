@@ -1,5 +1,5 @@
-import Game from "./Game";
-import View from "./View";
+import Game from "./Game"
+import View from "./View"
 
 type GameType = any
 type ViewType = any
@@ -16,10 +16,10 @@ class Controller {
   }
 
   init () {
-    this.game.setup();
-    this.eventsHandlers();
-    this.onResize();
-    requestAnimationFrame((time) => this.update(time));
+    this.game.setup()
+    this.eventsHandlers()
+    this.onResize()
+    requestAnimationFrame((time) => this.update(time))
   }
 
   eventsHandlers () {
@@ -35,22 +35,22 @@ class Controller {
   }
 
   update (time) {
-    this.updateView();
-    this.updateMoving();
-    this.checkCollision();
-    this.checkIsGameOver();
+    this.updateView()
+    this.updateMoving()
+    this.checkCollision()
+    this.checkIsGameOver()
 
-    this.game.prevUpdateTime = time;
+    this.game.prevUpdateTime = time
 
-    requestAnimationFrame((time) => this.update(time));
+    requestAnimationFrame((time) => this.update(time))
   }
 
   updateView () {
-    this.view.clearScreen();
-    this.view.drawShip(this.game.ship.body);
-    this.view.drawAsteroids(this.game.allAsteroids);
-    this.view.drawBullets(this.game.ship.body.bullets);
-    this.view.drawScore(this.game.state.score);
+    this.view.clearScreen()
+    this.view.drawShip(this.game.ship.body)
+    this.view.drawAsteroids(this.game.allAsteroids)
+    this.view.drawBullets(this.game.ship.body.bullets)
+    this.view.drawScore(this.game.state.score)
   }
 
   updateMoving () {
@@ -62,12 +62,12 @@ class Controller {
   }
 
   checkCollision () {
-    const ship = this.game.ship.body;
-    this.game.checkCollision(this.game.state, ship, this.game.allAsteroids);
-    this.game.shellHit(this.game.state, ship.bullets, this.game.allAsteroids);
-    this.game.handleEdgeOfSpace([ship]);
-    this.game.handleEdgeOfSpace(this.game.allAsteroids);
-    this.game.removeBulletsOutOfScreen(ship.bullets);
+    const ship = this.game.ship.body
+    this.game.checkCollision(this.game.state, ship, this.game.allAsteroids)
+    this.game.shellHit(this.game.state, ship.bullets, this.game.allAsteroids)
+    this.game.handleEdgeOfSpace([ship])
+    this.game.handleEdgeOfSpace(this.game.allAsteroids)
+    this.game.removeBulletsOutOfScreen(ship.bullets)
   }
 
   checkIsGameOver () {
@@ -77,15 +77,15 @@ class Controller {
   }
 
   onResize () {
-    const width = this.view.container.clientWidth;
-    const height = this.view.container.clientHeight;
-    this.view.updateCanvasDimensions();
-    this.game.markBoundaries(width, height);
+    const width = this.view.container.clientWidth
+    const height = this.view.container.clientHeight
+    this.view.updateCanvasDimensions()
+    this.game.markBoundaries(width, height)
   }
 
   stopGame () {
-    this.view.drawFinalScreen(this.game.state.score);
+    this.view.drawFinalScreen(this.game.state.score)
   }
 }
 
-export default Controller;
+export default Controller
