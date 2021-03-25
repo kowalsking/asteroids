@@ -7,7 +7,7 @@ type AnsteroidType = {
   yv: number
 }
 
-class Asteroid {
+export default class Asteroid {
   private config: ConfigType
   private asteroid: AnsteroidType
 
@@ -35,5 +35,3 @@ class Asteroid {
     return Math.random() < 0.5 ? 1 : -1;
   }
 }
-
-export default Asteroid;
