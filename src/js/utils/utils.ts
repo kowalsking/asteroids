@@ -1,0 +1,1 @@
+export const degreesToRadians = n => (n / 180) * Math.PI
