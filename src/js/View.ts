@@ -58,7 +58,7 @@ class View {
         x + r * Math.cos(Math.PI * 2),
         y + r * Math.sin(Math.PI * 2)
       ) 
-      for (let j = 0  j < 5  j++) {
+      for (let j = 0; j < 5; j++) {
         this.ctx.lineTo(
           x + r * Math.cos(Math.PI * 2 + (j * Math.PI * 2) / numOfAngles),
           y + r * Math.sin(Math.PI * 2 + (j * Math.PI * 2) / numOfAngles)

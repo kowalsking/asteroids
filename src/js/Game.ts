@@ -2,7 +2,7 @@ import Ship from "./Ship"
 import Asteroid from "./Asteroid"
 import { State, AnsteroidType, ConfigType } from './types/GameTypes'
 import { degreesToRadians } from './utils/utils'
-
+import { changeDirection } from './utils/utils'
 
 export default class Game {
   private width: number
@@ -72,16 +72,16 @@ export default class Game {
       x: x,
       y: y,
       radius: r,
-      xv: velocity * this.changeDirection(),
-      yv: velocity * this.changeDirection(),
+      xv: velocity * changeDirection(),
+      yv: velocity * changeDirection(),
     };
   }
 
-  moveAsteroids(asteroids) {
+  moveAsteroids (asteroids) {
     asteroids.forEach((roid) => {
       roid.x += roid.xv
       roid.y += roid.yv
-    });
+    })
   }
 
   createAsteroids () {
@@ -145,10 +145,6 @@ export default class Game {
     const roid = asteroids[i]
     asteroids.push(this.newAsteroid(roid.x, roid.y, roid.radius / 2))
     asteroids.push(this.newAsteroid(roid.x, roid.y, roid.radius / 2))
-  }
-
-  changeDirection() {
-    return Math.random() < 0.5 ? 1 : -1
   }
 
   distBetweenPoints(x1, y1, x2, y2) {

@@ -1,4 +1,5 @@
 import { AnsteroidType, ConfigType } from './types/GameTypes'
+import { changeDirection } from './utils/utils'
 export default class Asteroid {
   private asteroid: AnsteroidType
 
@@ -12,17 +13,13 @@ export default class Asteroid {
       x: x,
       y: y,
       radius: r,
-      xv: velocity * this.changeDirection(),
-      yv: velocity * this.changeDirection(),
+      xv: velocity * changeDirection(),
+      yv: velocity * changeDirection(),
     });
   }
 
   move (): void {
     this.asteroid.x += this.asteroid.xv
     this.asteroid.y += this.asteroid.yv
-  }
-
-  changeDirection ():number {
-    return Math.random() < 0.5 ? 1 : -1
   }
 }

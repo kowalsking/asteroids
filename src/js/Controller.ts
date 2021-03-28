@@ -72,7 +72,7 @@ class Controller {
 
   checkIsGameOver () {
     if (this.game.state.isGameOver) {
-      this.stopGame();
+      this.stopGame()
     }
   }
 
