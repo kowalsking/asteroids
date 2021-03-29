@@ -1,5 +1,5 @@
 import Controller from "./Controller"
-
-console.log('hi form ts file')
+import * as PIXI from 'pixi.js'
+console.log(PIXI)
 
 new Controller()
