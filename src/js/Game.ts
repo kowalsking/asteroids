@@ -37,11 +37,11 @@ export default class Game {
     this.ship.body = this.ship.create(w, h, s)
   }
 
-  setupAsteroids() {
+  setupAsteroids () {
     this.allAsteroids = this.createAsteroids()
   }
 
-  setupStateOfGame() {
+  setupStateOfGame () {
     this.state = this.getState()
   }
 
@@ -95,7 +95,7 @@ export default class Game {
     return allAsteroids
   }
 
-  checkCollision(state, ship, asteroids) {
+  checkCollision (state, ship, asteroids) {
     asteroids.forEach((roid) => {
       const dbp = this.distBetweenPoints(ship.x, ship.y, roid.x, roid.y) // dist between points
       const dbsr = ship.radius + roid.radius // dist between ship & roid
@@ -105,7 +105,7 @@ export default class Game {
     })
   }
 
-  shellHit(state, bullets, asteroids) {
+  shellHit (state, bullets, asteroids) {
     bullets.forEach((bullet, bindex) => {
       asteroids.forEach((roid, rindex) => {
         const dbbr = this.distBetweenPoints(bullet.x, bullet.y, roid.x, roid.y)
@@ -118,7 +118,7 @@ export default class Game {
     })
   }
 
-  removeBulletsOutOfScreen(bullets) {
+  removeBulletsOutOfScreen (bullets) {
     bullets.forEach((b, i) => {
       const out = b.x < 0 || b.x > this.width || b.y < 0 || b.y > this.height
 
@@ -128,7 +128,7 @@ export default class Game {
     })
   }
 
-  destroyAsteroid(asteroids, i) {
+  destroyAsteroid (asteroids, i) {
     const r = asteroids[i].radius
     const size = this.config.astrSize
     if (r === size / 2 || r === size / 4) {
@@ -137,21 +137,21 @@ export default class Game {
     asteroids.splice(i, 1)
   }
 
-  destroyBullet(bullets, i) {
+  destroyBullet (bullets, i) {
     bullets.splice(i, 1)
   }
 
-  splitInTwo(asteroids, i) {
+  splitInTwo (asteroids, i) {
     const roid = asteroids[i]
     asteroids.push(this.newAsteroid(roid.x, roid.y, roid.radius / 2))
     asteroids.push(this.newAsteroid(roid.x, roid.y, roid.radius / 2))
   }
 
-  distBetweenPoints(x1, y1, x2, y2) {
+  distBetweenPoints (x1, y1, x2, y2) {
     return Math.sqrt(Math.pow(x2 - x1, 2) + Math.pow(y2 - y1, 2))
   }
 
-  handleEdgeOfSpace(entities) {
+  handleEdgeOfSpace (entities) {
     entities.forEach((entity) => {
       if (entity.x < 0 - entity.radius) {
         entity.x = this.width + entity.radius
