@@ -9,7 +9,7 @@ class Ship {
     this.config = config
   }
 
-  create (w, h, s) {
+  create (w: number, h: number, s: number) {
     return (this.ship = {
       color: "#FFCC00",
       x: w / 2,
@@ -72,8 +72,6 @@ class Ship {
 
     return this.ship.bullets.push(bullet) 
   }
-
-
 }
 
 export default Ship 

@@ -63,7 +63,7 @@ export default class Game {
     return {
       score: 0,
       isGameOver: false,
-    };
+    }
   }
 
   newAsteroid (x, y, r = this.config.astrSize / 2): AnsteroidType {
